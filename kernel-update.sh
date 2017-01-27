@@ -30,7 +30,7 @@ fi
 pushd /usr/src/linux
 
 # Copy old config
-notify "Upgrading to: " $new_kernel
+notify "Upgrading to: $new_kernel"
 cp -v /usr/src/linux-$current_kernel/.config .
 
 # Create new config
