@@ -11,8 +11,11 @@ set -e
 
 # Remove old kernel sources
 emerge -q --noreplace eclean-kernel
-notify "Removing old kernel sources..."
-emerge --depclean gentoo-sources || exit 1
+
+if [ "$(eix '-I*' --format '<installedversions:NAMEVERSION>' gentoo-sources | wc -l)" -ne "1" ]; then
+	notify "Removing old kernel sources..."
+	emerge --depclean gentoo-sources || exit 1
+fi
 
 # Select most current
 eselect kernel set 1
