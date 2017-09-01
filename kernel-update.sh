@@ -9,6 +9,9 @@ notify() {
 # Abort on error
 set -e
 
+# Avoid removing all versions of gentoo-sources
+emerge --noreplace gentoo-sources
+
 # Remove old kernel sources
 emerge -q --noreplace eclean-kernel
 notify "Removing old kernel sources..."
