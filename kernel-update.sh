@@ -14,8 +14,11 @@ emerge --noreplace gentoo-sources
 
 # Remove old kernel sources
 emerge -q --noreplace eclean-kernel
-notify "Removing old kernel sources..."
-emerge --depclean gentoo-sources || exit 1
+
+if [ "$(eix '-I*' --format '<installedversions:NAMEVERSION>' gentoo-sources | wc -l)" -ne "1" ]; then
+	notify "Removing old kernel sources..."
+	emerge --depclean gentoo-sources || exit 1
+fi
 
 # Select most current
 eselect kernel set 1
@@ -33,7 +36,7 @@ fi
 pushd /usr/src/linux
 
 # Copy old config
-notify "Upgrading to: " $new_kernel
+notify "Upgrading to: $new_kernel"
 cp -v /usr/src/linux-$current_kernel/.config .
 
 # Create new config
