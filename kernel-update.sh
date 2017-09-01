@@ -46,6 +46,7 @@ yes "" | make oldconfig
 make -j5
 
 # Install
+mount /boot || true
 make install
 make modules_install
 boot-update
