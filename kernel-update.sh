@@ -14,7 +14,7 @@ emerge -q --noreplace eclean-kernel
 
 if [ "$(eix '-I*' --format '<installedversions:NAMEVERSION>' gentoo-sources | wc -l)" -ne "1" ]; then
 	notify "Removing old kernel sources..."
-	emerge --depclean gentoo-sources || exit 1
+	emerge --depclean || exit 1
 fi
 
 # Select most current
