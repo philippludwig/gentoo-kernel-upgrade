@@ -58,6 +58,10 @@ emerge -v @module-rebuild --exclude=debian-sources
 # Remove old kernel stuff
 notify "Removing old kernels..."
 eclean-kernel --destructive -n 2
+
+# Build initramfs
+genkernel --no-clean --no-mrproper --lvm --luks initramfs
+
 boot-update
 
 exit 0
