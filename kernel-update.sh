@@ -53,7 +53,7 @@ boot-update
 
 # Rebuild modules
 notify "Rebuilding modules..."
-emerge -v @module-rebuild
+emerge -v @module-rebuild --exclude=debian-sources
 
 # Remove old kernel stuff
 notify "Removing old kernels..."
