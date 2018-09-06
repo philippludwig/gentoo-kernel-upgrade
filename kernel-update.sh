@@ -49,7 +49,7 @@ make -j5
 mount /boot || true
 make install
 make modules_install
-boot-update
+boot-update || grub-mkconfig -o /boot/grub/grub.cfg
 
 # Rebuild modules
 notify "Rebuilding modules..."
@@ -62,6 +62,6 @@ eclean-kernel --destructive -n 2
 # Build initramfs
 genkernel --no-clean --no-mrproper --lvm --luks initramfs
 
-boot-update
+boot-update || grub-mkconfig -o /boot/grub/grub.cfg
 
 exit 0
