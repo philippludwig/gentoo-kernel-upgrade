@@ -40,7 +40,7 @@ notify "Upgrading to: $new_kernel"
 cp -v /usr/src/linux-$current_kernel/.config .
 
 # Create new config
-yes "" | make oldconfig
+make olddefconfig
 
 # Compile
 make -j5

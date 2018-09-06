@@ -23,7 +23,7 @@ The script performs the following actions (in this order):
 3. ``eselect kernel set 1`` (select the most recent source)
 4. Check if an upgrade is needed -> if not, do nothing
 5. Copy the ``.config`` of your currently running kernel
-6. Update config: ``yes "" | make oldconfig``
+6. Update config: ``make olddefconfig``
 7. Compile your new kernel
 8. Install it
 9. Re-install kernel modules: ``emerge -v @module-rebuild``
