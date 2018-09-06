@@ -28,7 +28,7 @@ The script performs the following actions (in this order):
 8. Install it
 9. Re-install kernel modules: ``emerge -v @module-rebuild``
 10. Remove old kernels: ``eclean-kernel --destructive -n 2``
-11. Run genkernel to create an initramfs: ``genkernel --no-mrproper --no-clean --lvm --luks initramfs``
+11. Run genkernel to create an initramfs: ``genkernel --lvm --luks initramfs``
 12. Run ``boot-update`` or ``grub-mkconfig`` to make the new kernel available in your bootloader.
 
 ## TODO/Known issues

@@ -60,7 +60,7 @@ notify "Removing old kernels..."
 eclean-kernel --destructive -n 2
 
 # Build initramfs
-genkernel --no-clean --no-mrproper --lvm --luks initramfs
+genkernel --lvm --luks initramfs
 
 boot-update || grub-mkconfig -o /boot/grub/grub.cfg
 
