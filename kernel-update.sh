@@ -12,8 +12,8 @@ set -e
 # Avoid removing all versions of gentoo-sources
 emerge --noreplace gentoo-sources
 
-# Remove old kernel sources
-emerge -q --noreplace eclean-kernel
+# Install required utilities
+emerge -q --noreplace eclean-kernel zfs
 
 if [ "$(eix '-I*' --format '<installedversions:NAMEVERSION>' gentoo-sources | wc -l)" -ne "1" ]; then
 	notify "Removing old kernel sources..."
@@ -64,4 +64,4 @@ genkernel --lvm --luks --zfs --microcode initramfs
 
 boot-update || grub-mkconfig -o /boot/grub/grub.cfg
 
-exit 0
+exit
