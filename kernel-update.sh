@@ -60,7 +60,7 @@ notify "Removing old kernels..."
 eclean-kernel --destructive -n 2
 
 # Build initramfs
-genkernel --lvm --luks --zfs --microcode initramfs
+genkernel --firmware --ssh-authorized-keys-file=$HOME/.ssh/authorized_keys --ssh --lvm --luks --zfs --microcode initramfs
 
 boot-update || grub-mkconfig -o /boot/grub/grub.cfg
 
